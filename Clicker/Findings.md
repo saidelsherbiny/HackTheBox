@@ -3,7 +3,8 @@ After going to the webpage http://clicker.htb we notice a login button
 After testing some default creds and not succeeding we notice the following URL with each wrong credential validation:
 http://clicker.htb/login.php?err=Authentication%20Failed
 
-![[Pasted image 20231221191742.png]]
+![image](https://github.com/saidelsherbiny/HackTheBox/assets/Pasted image 20231221191742.png)
+
 
 After modifying the URL, the message shown is different:
 

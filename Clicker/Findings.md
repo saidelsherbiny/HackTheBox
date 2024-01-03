@@ -83,12 +83,15 @@ ok so we have a source code and some credentials of a DB that is hosted locally.
 
 
 When looking further into the website we notice that after saving the game we are sending this request:
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223162123.png)
 
 Can we change our role to admin?
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223162101.png)
 
 ok we got this:
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223162223.png)
 
 
@@ -97,19 +100,23 @@ After doing some investigation I came across CRLF injection:
 https://book.hacktricks.xyz/pentesting-web/crlf-0d-0a
 
 so trying to add %0D%0A before the role:
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223163745.png)
 
 
 And bam
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223162845.png)
 
 
 now let's log out and log back in, and we have access to admin.php
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223163931.png)
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223163943.png)
 
 
 What does the export do?
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165151.png)
 
 creates a file on the system with info about the users
@@ -117,12 +124,14 @@ creates a file on the system with info about the users
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165218.png)
 
 However look at the request:
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165232.png)
 
 
 can we change the extension?
 
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165305.png)
+
 it looks like we just did?
 
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165327.png)
@@ -136,9 +145,11 @@ ok how can we play with that?
 maybe create an account with a payload, that will execute once we open the export?
 
 ok that did not work
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165630.png)
 
 how else can we change the nickname? maybe we can inject into that request?
+
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165945.png)
 
 ![Alt Text](https://github.com/saidelsherbiny/HackTheBox/blob/main/Clicker/assets/Pasted%20image%2020231223165950.png)

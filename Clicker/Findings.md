@@ -4,7 +4,7 @@ After testing some default creds and not succeeding we notice the following URL 
 http://clicker.htb/login.php?err=Authentication%20Failed
 
 ![image](../assets/Pasted image 20231221191742.png)
-
+Clicker/assets/Pasted image 20231221191742.png
 
 After modifying the URL, the message shown is different:
 
